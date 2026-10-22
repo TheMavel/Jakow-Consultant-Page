@@ -16,12 +16,22 @@ Reines HTML, CSS und JavaScript plus ein kleiner Node.js-Server ohne Zusatzpaket
 ## Projektstruktur
 
 ```
-portfolio/   Statische Seite (index.html, css/, js/)
+index.html   Die Seite (liegt im Hauptordner, damit GitHub Pages sie findet)
+css/, js/    Styles und Interaktionen
 server/      Node-Server: liefert die Seite aus und stellt die API-Endpunkte bereit
   server.mjs                 /api/news, /api/motivation, /api/newsletter, /api/contact
   .env.example               Vorlage für die Zugangsdaten
   supabase-newsletter.sql    Tabelle für die Newsletter-Anmeldungen
 ```
+
+## GitHub Pages
+
+Settings → Pages → *Deploy from a branch* → `main` / `/ (root)`.
+
+GitHub Pages liefert nur statische Dateien aus, der Node-Server läuft dort nicht. Auf Pages funktionieren
+deshalb: Design, Animationen, Live-Wetter, Voice Agent und die Motivation als Offline-Version.
+News-Ticker, KI-Motivation, Newsletter und Kontaktformular brauchen den Server
+(lokal oder bei einem Node-Hoster wie Render oder Railway).
 
 ## Lokal starten
 

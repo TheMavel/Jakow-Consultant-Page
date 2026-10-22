@@ -1,5 +1,5 @@
 // Kleiner Node-Server für das Portfolio (ohne Zusatzpakete)
-// - liefert die statische Seite aus ../portfolio aus
+// - liefert die statische Seite aus dem Hauptordner aus (index.html, css/, js/)
 // - GET /api/news: Top-Schlagzeilen über die World News API (1 Stunde zwischengespeichert)
 // - POST /api/newsletter: Newsletter-Anmeldung, wird in Supabase gespeichert
 // - POST /api/contact: Kontaktformular, wird geprüft und an den n8n-Webhook weitergeleitet
@@ -19,7 +19,10 @@ const envFile = path.join(here, ".env");
 if (existsSync(envFile)) process.loadEnvFile(envFile);
 
 const PORT = Number(process.env.PORT) || 5500;
-const WEB_ROOT = path.resolve(here, "..", "portfolio");
+// Die Seite liegt im Hauptordner (für GitHub Pages). Ausgeliefert werden NUR diese Pfade –
+// server/, .env & Co. sind dadurch nie über den Browser erreichbar.
+const WEB_ROOT = path.resolve(here, "..");
+const PUBLIC_PATHS = [/^\/index\.html$/, /^\/css\/[\w.-]+\.css$/, /^\/js\/[\w.-]+\.js$/, /^\/(img|assets)\/[\w./-]+$/];
 const CACHE_FILE = path.join(here, "cache.json");
 const OPENAI_BASE_URL = process.env.OPENAI_BASE_URL || "https://api.openai.com/v1";
 const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-6-luna";
@@ -409,12 +412,22 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // Statische Dateien – nur innerhalb von ../portfolio, keine versteckten Dateien
-  let pathname = decodeURIComponent(url.pathname);
-  if (pathname.endsWith("/")) pathname += "index.html";
+  // Statische Dateien – nur freigegebene Pfade, keine versteckten Dateien
+  let pathname;
+  try {
+    pathname = decodeURIComponent(url.pathname);
+  } catch {
+    res.writeHead(400).end("Ungültige Adresse");
+    return;
+  }
+  if (pathname === "/") pathname = "/index.html";
   const file = path.resolve(WEB_ROOT, "." + pathname);
-  if (!file.startsWith(WEB_ROOT + path.sep) || pathname.split("/").some((p) => p.startsWith("."))) {
-    res.writeHead(403).end("Verboten");
+  const allowed =
+    PUBLIC_PATHS.some((re) => re.test(pathname)) &&
+    !pathname.split("/").some((p) => p.startsWith(".")) &&
+    file.startsWith(WEB_ROOT + path.sep);
+  if (!allowed) {
+    res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" }).end("Nicht gefunden");
     return;
   }
   try {

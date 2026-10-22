@@ -1,8 +1,11 @@
-# Nur die Portfolio-Seite und ihren Server versionieren – alles andere im Ordner bleibt lokal
+# Nur die Portfolio-Seite (liegt für GitHub Pages im Hauptordner) und ihren Server versionieren
 /*
 !/.gitignore
 !/README.md
-!/portfolio/
+!/index.html
+!/css/
+!/js/
+!/img/
 !/server/
 
 # Geheimnisse: NIEMALS hochladen
