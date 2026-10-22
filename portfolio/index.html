@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jakow Smirin · AI Consultant & AIOps</title>
+  <meta name="description" content="Jakow Smirin – CEO des STARTPLATZ AI HUB, AI Consultant und AIOps-Enthusiast aus Düsseldorf. Idea Machine & Problem Solver from the Future." />
+  <meta name="theme-color" content="#061a52" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b3bb5'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='28' fill='white'%3EJS%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top" aria-label="Jakow Smirin – zur Startseite">
+      <span class="nav__logo">JS</span>
+      <span class="nav__name">Jakow Smirin</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Hauptnavigation">
+      <a href="#about">Über mich</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#career">Werdegang</a>
+      <a href="#skills">Sprachen</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a class="btn btn--primary btn--sm" href="#contact">Kontakt aufnehmen</a>
+      <button class="nav__burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Mobile Navigation">
+      <a href="#about">Über mich</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#career">Werdegang</a>
+      <a href="#skills">Sprachen</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+    <p class="mobile-menu__foot">Düsseldorf · <span lang="ja">未来</span></p>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ NEWS-TICKER (World News API) – erscheint erst, wenn Schlagzeilen da sind ============ -->
+    <section class="ticker" id="news" aria-label="Aktuelle Nachrichten" hidden>
+      <p class="ticker__label"><span class="ticker__dot" aria-hidden="true"></span>News</p>
+      <div class="ticker__viewport">
+        <div class="ticker__track">
+          <ul class="ticker__list" data-news="list"></ul>
+          <ul class="ticker__list" data-news="clone" aria-hidden="true"></ul>
+        </div>
+      </div>
+      <button class="ticker__toggle" type="button" aria-label="Nachrichten-Ticker pausieren" aria-pressed="false">
+        <svg viewBox="0 0 24 24" class="i-pause" aria-hidden="true"><path d="M8 5v14M16 5v14" /></svg>
+        <svg viewBox="0 0 24 24" class="i-play" aria-hidden="true"><path d="M8 5l11 7-11 7z" /></svg>
+      </button>
+    </section>
+
+    <!-- ============ HERO ============ -->
+    <section class="panel panel--hero" id="top">
+      <canvas class="flow" data-flow aria-hidden="true"></canvas>
+      <div class="panel__glow" aria-hidden="true"></div>
+      <div class="panel__sun" aria-hidden="true"></div>
+
+      <div class="hero container">
+        <p class="pill" data-reveal><span class="pill__dot"></span>AI Consultant · AIOps · Düsseldorf</p>
+
+        <h1 class="hero__title" data-split>
+          Künstliche Intelligenz.<br />
+          <em>Menschlich</em> gedacht.
+        </h1>
+
+        <p class="hero__lead" data-reveal style="--d: .35s">
+          Ich bin Jakow – CEO des STARTPLATZ AI HUB, AI Consultant und selbsternannte
+          <strong>Idea Machine</strong>. Ich helfe Unternehmen, Teams und Menschen, KI zu verstehen,
+          sinnvoll einzusetzen und Abläufe mit Tools wie n8n, Claude und LangChain zu automatisieren.
+        </p>
+
+        <div class="hero__cta" data-reveal style="--d: .5s">
+          <a class="btn btn--light" href="#contact">Zusammenarbeit anfragen</a>
+          <a class="btn btn--ghost" href="#career">Werdegang ansehen</a>
+        </div>
+
+        <dl class="stats" data-reveal style="--d: .65s">
+          <div class="stat">
+            <dt>Jahre Berufserfahrung</dt>
+            <dd><span data-count="14">0</span>+</dd>
+          </div>
+          <div class="stat">
+            <dt>Teammitglieder geführt</dt>
+            <dd><span data-count="15">0</span></dd>
+          </div>
+          <div class="stat">
+            <dt>Sprachen</dt>
+            <dd><span data-count="4">0</span></dd>
+          </div>
+          <div class="stat">
+            <dt>Neugier</dt>
+            <dd>∞</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="hanko" title="未来 · mirai · Zukunft" aria-hidden="true"><span lang="ja">未来</span></div>
+    </section>
+
+    <!-- ============ STATIONEN-MARQUEE ============ -->
+    <section class="panel panel--strip" aria-label="Stationen meines Werdegangs">
+      <div class="marquee" id="marquee">
+        <div class="marquee__track">
+          <ul class="marquee__list">
+            <li>STARTPLATZ AI HUB</li>
+            <li>RUSH.GG</li>
+            <li>Angry Titans</li>
+            <li>Alpha Klima</li>
+            <li>Bonum GmbH</li>
+            <li>Universität Duisburg-Essen</li>
+            <li>Radio Neandertal</li>
+            <li>SIGNAL IDUNA</li>
+          </ul>
+          <ul class="marquee__list" aria-hidden="true">
+            <li>STARTPLATZ AI HUB</li>
+            <li>RUSH.GG</li>
+            <li>Angry Titans</li>
+            <li>Alpha Klima</li>
+            <li>Bonum GmbH</li>
+            <li>Universität Duisburg-Essen</li>
+            <li>Radio Neandertal</li>
+            <li>SIGNAL IDUNA</li>
+          </ul>
+        </div>
+      </div>
+      <button class="marquee__toggle" id="marquee-toggle" aria-label="Laufband pausieren" aria-pressed="false">
+        <svg viewBox="0 0 24 24" class="i-pause" aria-hidden="true"><path d="M8 5v14M16 5v14" /></svg>
+        <svg viewBox="0 0 24 24" class="i-play" aria-hidden="true"><path d="M8 5l11 7-11 7z" /></svg>
+      </button>
+    </section>
+
+    <!-- ============ MOTIVATION DES TAGES ============ -->
+    <section class="panel panel--motivation" id="motivation" aria-labelledby="motivation-title" data-state="loading">
+      <div class="container motivation">
+        <div class="motivation__text">
+        <p class="eyebrow" id="motivation-title" data-reveal>Motivation des Tages · <span data-m="date"></span></p>
+        <blockquote class="motivation__quote" data-reveal style="--d: .1s">
+          <p data-m="text">Die heutige Motivation wird gerade kompiliert …</p>
+        </blockquote>
+        <ul class="motivation__tags" data-reveal style="--d: .2s">
+          <li class="motivation__tag motivation__tag--weather" data-m="weather" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .5-7.97A6 6 0 0 0 6.1 11.5 3.3 3.3 0 0 0 7 18z" /></svg>
+            Passend zum Wetter
+          </li>
+          <li class="motivation__tag" data-m="source">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z" /><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z" /></svg>
+            <span>KI-generiert</span>
+          </li>
+        </ul>
+        </div>
+
+          <!-- ============ WETTER (Open-Meteo) ============ -->
+          <aside class="weather" id="weather" data-state="loading" aria-label="Aktuelles Wetter in Düsseldorf" data-reveal style="--d: .15s">
+            <header class="weather__head">
+              <span class="weather__live"><span class="weather__dot"></span>Live · Düsseldorf</span>
+              <span class="weather__time" data-w="time">lädt …</span>
+            </header>
+
+            <div class="weather__main">
+              <div class="weather__icon" data-w="icon" aria-hidden="true"></div>
+              <div class="weather__now">
+                <p class="weather__temp"><span data-w="temp">--</span>°</p>
+                <p class="weather__desc" data-w="desc">Wetter wird geladen</p>
+                <p class="weather__feels" data-w="feels">&nbsp;</p>
+              </div>
+            </div>
+
+            <ul class="weather__metrics">
+              <li class="metric metric--rain">
+                <span class="metric__label">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5s6 6.4 6 10.5a6 6 0 0 1-12 0c0-4.1 6-10.5 6-10.5z" /></svg>
+                  Regen
+                </span>
+                <span class="metric__value" data-w="rain">–</span>
+                <span class="metric__sub" data-w="rain-sub">&nbsp;</span>
+              </li>
+              <li class="metric metric--sun">
+                <span class="metric__label">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" /></svg>
+                  Sonne
+                </span>
+                <span class="metric__value" data-w="sun">–</span>
+                <span class="metric__sub" data-w="sun-sub">&nbsp;</span>
+                <span class="metric__bar" aria-hidden="true"><span data-w="sun-bar"></span></span>
+              </li>
+              <li class="metric metric--wind">
+                <span class="metric__label">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5h11a3 3 0 1 0-3-3M3 12.5h15a3 3 0 1 1-3 3M3 16.5h7" /></svg>
+                  Wind
+                </span>
+                <span class="metric__value" data-w="wind">–</span>
+                <span class="metric__sub">
+                  <svg class="metric__arrow" data-w="wind-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V5M6.5 10.5L12 5l5.5 5.5" /></svg>
+                  <span data-w="wind-sub">&nbsp;</span>
+                </span>
+                <span class="metric__sub" data-w="gust">&nbsp;</span>
+              </li>
+            </ul>
+
+            <div class="weather__hours">
+              <p class="weather__hours-title">Regenwahrscheinlichkeit · nächste 8 Std.</p>
+              <ol class="rainbars" data-w="bars"></ol>
+            </div>
+
+            <div class="weather__error">
+              <p>Wetterdaten gerade nicht erreichbar.</p>
+              <button class="weather__retry" type="button" data-w="retry">Erneut versuchen</button>
+            </div>
+
+            <p class="weather__credit"><a href="https://open-meteo.com/" target="_blank" rel="noopener">Wetterdaten: Open-Meteo.com</a></p>
+          </aside>
+      </div>
+    </section>
+
+    <!-- ============ ÜBER MICH ============ -->
+    <section class="panel panel--tint" id="about">
+      <div class="container about">
+        <div class="about__text">
+          <p class="eyebrow" data-reveal>Wer ich bin</p>
+          <h2 class="h2" data-split>Neugier ist mein <em>Betriebssystem.</em></h2>
+          <p data-reveal>
+            Eine fast grenzenlose Neugier treibt mich an – für Gaming und Technologie genauso wie für
+            japanische Kultur und Astronomie. Ich liebe es, den Status quo zu hinterfragen und
+            Herausforderungen kreativ zu meistern, ganz egal, wie unlösbar sie auf den ersten Blick wirken.
+          </p>
+          <p data-reveal>
+            Ich bin offenherzig, aufgeschlossen und empathisch. Es macht mir große Freude, mit
+            unterschiedlichsten Persönlichkeiten zu arbeiten und andere mit meiner Begeisterung anzustecken.
+            Heute nutze ich meine Erfahrung aus KI, digitalen Medien und Projektmanagement, um die
+            KI-Kompetenz in Deutschland zu stärken.
+          </p>
+
+          <ul class="chips" data-reveal aria-label="Interessen">
+            <li>Gaming</li>
+            <li>Technologie</li>
+            <li>Japanische Kultur</li>
+            <li>Astronomie</li>
+          </ul>
+
+          <a class="btn btn--primary" href="#career" data-reveal>
+            Meinen Werdegang ansehen
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+        </div>
+
+        <figure class="portrait" data-reveal style="--d: .15s">
+          <!--
+            Eigenes Foto einsetzen: den Block .portrait__art durch
+            <img src="img/jakow.jpg" alt="Porträt von Jakow Smirin" /> ersetzen.
+          -->
+          <div class="portrait__art" aria-hidden="true">
+            <div class="orbit orbit--1"><span></span></div>
+            <div class="orbit orbit--2"><span></span></div>
+            <div class="orbit orbit--3"><span></span></div>
+            <div class="portrait__core">JS</div>
+            <span class="portrait__kanji" lang="ja">好奇心</span>
+          </div>
+          <figcaption>Jakow Smirin · CEO, STARTPLATZ AI HUB · Düsseldorf</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ WERTE / AKKORDEON ============ -->
+    <section class="panel panel--blue" id="values">
+      <div class="container values">
+        <div class="values__intro">
+          <p class="eyebrow eyebrow--light" data-reveal>Arbeitsweise</p>
+          <h2 class="h2" data-split>Warum Teams gern mit mir <em>arbeiten.</em></h2>
+        </div>
+
+        <div class="accordion" data-reveal style="--d: .15s">
+          <div class="acc">
+            <button class="acc__head" aria-expanded="true">
+              <span class="acc__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9" /></svg></span>
+              Neugier ohne Grenzen
+              <svg class="acc__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="acc__body"><div>
+              <p>Ob neues KI-Modell, Automatisierungs-Workflow oder eine völlig fremde Branche: Ich tauche tief ein, bis ich verstanden habe, wie die Dinge funktionieren – und wie man sie besser machen kann.</p>
+            </div></div>
+          </div>
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false">
+              <span class="acc__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9" /></svg></span>
+              Status quo? Wird hinterfragt.
+              <svg class="acc__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="acc__body"><div>
+              <p>„Das haben wir schon immer so gemacht“ ist für mich eine Einladung. Ich suche kreative Wege – gerade dort, wo Probleme zunächst unlösbar wirken.</p>
+            </div></div>
+          </div>
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false">
+              <span class="acc__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9" /></svg></span>
+              Empathie und Teamgeist
+              <svg class="acc__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="acc__body"><div>
+              <p>Ich habe ein 15-köpfiges Team geführt, Pro-Gamer betreut und Gäste bei exklusiven Events umsorgt. Dabei habe ich gelernt: Technologie funktioniert nur, wenn die Menschen mitgenommen werden.</p>
+            </div></div>
+          </div>
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false">
+              <span class="acc__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9" /></svg></span>
+              Begeisterung, die ansteckt
+              <svg class="acc__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="acc__body"><div>
+              <p>In Expert Talks, Webinaren und Workshops teile ich Wissen so, dass es inspiriert – und Lust darauf macht, jetzt zu handeln.</p>
+            </div></div>
+          </div>
+          <div class="acc">
+            <button class="acc__head" aria-expanded="false">
+              <span class="acc__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9" /></svg></span>
+              Von der Vision bis zur Umsetzung
+              <svg class="acc__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="acc__body"><div>
+              <p>Als Gründer, General Manager und CEO kenne ich beide Seiten: die große Idee und die operative Realität mit Budgets, Reportings und Deadlines.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERTISE ============ -->
+    <section class="panel" id="expertise">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal>Was ich mache</p>
+          <h2 class="h2" data-split>Wie ich dich <em>unterstütze.</em></h2>
+          <p class="section-head__lead" data-reveal>
+            Meine Arbeit liegt an der Schnittstelle von Technologie, Bildung und Menschen.
+            Sechs Bereiche, in denen ich dich und dein Team weiterbringe.
+          </p>
+        </header>
+
+        <div class="cards">
+          <article class="card" data-reveal>
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" /><circle cx="12" cy="12" r="3.5" /></svg>
+            </div>
+            <h3>KI-Strategie &amp; Beratung</h3>
+            <p>Ich berate Unternehmen aus unterschiedlichsten Branchen bei der Integration von KI – von der ersten Potenzialanalyse bis zum konkreten Use Case.</p>
+            <ul class="tags"><li>Consulting</li><li>Use Cases</li></ul>
+          </article>
+
+          <article class="card" data-reveal style="--d: .08s">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="6" height="6" rx="1.5" /><rect x="15" y="4" width="6" height="6" rx="1.5" /><rect x="9" y="14" width="6" height="6" rx="1.5" /><path d="M9 7h6M6 10v2a2 2 0 0 0 2 2h1M18 10v2a2 2 0 0 1-2 2h-1" /></svg>
+            </div>
+            <h3>AIOps &amp; Automatisierung</h3>
+            <p>Wiederkehrende Arbeit an Maschinen abgeben: Ich baue Workflows und KI-Agenten, die im Alltag echte Zeit sparen.</p>
+            <ul class="tags"><li>n8n</li><li>Anthropic Claude</li><li>LangChain</li></ul>
+          </article>
+
+          <article class="card" data-reveal style="--d: .16s">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z" /><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6" /></svg>
+            </div>
+            <h3>KI-Bildung &amp; Workshops</h3>
+            <p>Mit dem STARTPLATZ AI HUB bauen wir KI-Kompetenz auf: Programme und Workshops für die nächste Generation von KI-Talenten.</p>
+            <ul class="tags"><li>AI Literacy</li><li>Workshops</li></ul>
+          </article>
+
+          <article class="card" data-reveal>
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8" /></svg>
+            </div>
+            <h3>Community &amp; Events</h3>
+            <p>Expert Talks, Webinare, Events: Ich bringe Lernende und Gestaltende zusammen und sorge für echten Austausch auf Augenhöhe.</p>
+            <ul class="tags"><li>Speaker</li><li>Netzwerk</li></ul>
+          </article>
+
+          <article class="card" data-reveal style="--d: .08s">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" /><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5" /><circle cx="17.5" cy="9.5" r="2.5" /><path d="M17 14.5c2.4.2 4 1.8 4.5 4.5" /></svg>
+            </div>
+            <h3>Führung &amp; Projekte</h3>
+            <p>Teams aufbauen, Projekte steuern, Budgets im Blick behalten – mit einer Kultur aus Zusammenarbeit, Kreativität und Transparenz.</p>
+            <ul class="tags"><li>Leadership</li><li>Partnerschaften</li></ul>
+          </article>
+
+          <article class="card" data-reveal style="--d: .16s">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z" /><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" /></svg>
+            </div>
+            <h3>Marketing &amp; Kommunikation</h3>
+            <p>Social-Media-Strategien, Omni-Channel-Kampagnen und Sponsoring-Partnerschaften – aus Esports, Employer Branding und Medien.</p>
+            <ul class="tags"><li>Social Media</li><li>Branding</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WERDEGANG ============ -->
+    <section class="panel panel--deep" id="career">
+      <canvas class="stars" data-stars aria-hidden="true"></canvas>
+      <div class="container">
+        <header class="section-head section-head--center">
+          <p class="eyebrow eyebrow--light" data-reveal>Werdegang</p>
+          <h2 class="h2" data-split><em>Stationen</em> meiner Reise.</h2>
+        </header>
+
+        <div class="filters" role="group" aria-label="Werdegang filtern" data-reveal>
+          <button class="filter is-active" data-filter="all" aria-pressed="true">Alle</button>
+          <button class="filter" data-filter="ki" aria-pressed="false">KI &amp; Innovation</button>
+          <button class="filter" data-filter="lead" aria-pressed="false">Leadership</button>
+          <button class="filter" data-filter="gaming" aria-pressed="false">Gaming &amp; Esports</button>
+          <button class="filter" data-filter="media" aria-pressed="false">Marketing &amp; Medien</button>
+          <button class="filter" data-filter="service" aria-pressed="false">Kunden &amp; Service</button>
+        </div>
+
+        <ol class="timeline">
+          <li class="job is-current" data-tags="ki lead">
+            <div class="job__time"><span>2024</span> – heute</div>
+            <div class="job__body">
+              <p class="job__meta">Juli 2024 – heute · Düsseldorf <span class="badge">Aktuell</span></p>
+              <h3>Chief Executive Officer</h3>
+              <p class="job__org">STARTPLATZ AI HUB</p>
+              <ul>
+                <li>Leitung des STARTPLATZ AI HUB mit dem Ziel, ein zentraler Ort für KI-Bildung zu werden</li>
+                <li>Beratung zur KI-Integration in unterschiedlichsten Branchen, Steuerung von KI-Projekten</li>
+                <li>Aufbau eines Teams mit einer Kultur aus Zusammenarbeit, Kreativität und Transparenz</li>
+                <li>Ausbau von Partnerschaften mit Bildungseinrichtungen, Unternehmen und Branchengrößen</li>
+                <li>Expert Talks, Webinare und Events, um Deutschlands KI-Kompetenz zu stärken</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job" data-tags="ki lead">
+            <div class="job__time"><span>2023</span> – 2024</div>
+            <div class="job__body">
+              <p class="job__meta">Juli 2023 – Juli 2024 · Düsseldorf</p>
+              <h3>Project Manager: AI-Hub Düsseldorf</h3>
+              <p class="job__org">STARTPLATZ · „Chief AI &amp; Operations Officer“</p>
+              <ul>
+                <li>Innovation vorantreiben und Lernende mit Gestaltenden im KI-Bereich vernetzen</li>
+                <li>Koordination von Expert Talks, Best-Practice-Formaten und persönlichem Austausch</li>
+                <li>Unterstützung innovativer Unternehmen bei der Integration von KI-Anwendungen</li>
+                <li>Vision: den AI HUB zu Deutschlands Zentrum für generative KI entwickeln</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job" data-tags="media">
+            <div class="job__time"><span>2022</span> – 2023</div>
+            <div class="job__body">
+              <p class="job__meta">Oktober 2022 – Februar 2023 · Kaarst</p>
+              <h3>Social Media Manager</h3>
+              <p class="job__org">Alpha Klima GmbH</p>
+              <ul>
+                <li>Social-Media-Strategie, die Alpha Klima als attraktiven Arbeitgeber positioniert</li>
+                <li>Zielgerichtete Recruiting-Kampagnen gemeinsam mit dem HR-Team</li>
+                <li>Reputationsmanagement und datengetriebene Kampagnensteuerung</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job" data-tags="gaming media">
+            <div class="job__time"><span>2022</span></div>
+            <div class="job__body">
+              <p class="job__meta">März 2022 – August 2022</p>
+              <h3>Projektmanager Esport</h3>
+              <p class="job__org">RUSH.GG</p>
+              <ul>
+                <li>Projekte in Esports &amp; Gaming, Influencer-Marketing, Live-Kommunikation und Sponsoring</li>
+                <li>Marktanalysen und Konzeptberatung für Kunden aus Esports &amp; Gaming</li>
+                <li>Kalkulationen, Budget-Monitoring, Reportings und Pitches für nationale und internationale Kunden</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job" data-tags="gaming lead media">
+            <div class="job__time"><span>2020</span> – 2022</div>
+            <div class="job__body">
+              <p class="job__meta">November 2020 – März 2022 · Krefeld</p>
+              <h3>General Manager</h3>
+              <p class="job__org">Angry Titans</p>
+              <ul>
+                <li>Creative Lead beim Rebranding der Marke</li>
+                <li>Management des Alltags von 6 Pro-Playern</li>
+                <li>Omni-Channel-Marketingstrategie inklusive Content-Produktion und -Distribution</li>
+                <li>Akquise und Betreuung von Sponsoring-Partnerschaften, u.&nbsp;a. Acer, Logitech und Ankerkraut</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job" data-tags="lead">
+            <div class="job__time"><span>2018</span> – 2021</div>
+            <div class="job__body">
+              <p class="job__meta">Oktober 2018 – November 2021 · Düsseldorf</p>
+              <h3>Geschäftsführer</h3>
+              <p class="job__org">Bonum GmbH</p>
+              <ul>
+                <li>Gründung und Management der GmbH</li>
+                <li>Kundenakquise in direkter Zusammenarbeit mit Krankenhäusern</li>
+                <li>Führungsverantwortung für ein 15-köpfiges Team, Personal- und Payroll-Management</li>
+                <li>Enger Austausch mit Stadt und Behörden</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job" data-tags="service">
+            <div class="job__time"><span>2014</span> – 2018</div>
+            <div class="job__body">
+              <p class="job__meta">Oktober 2014 – Oktober 2018 · Düsseldorf und Umgebung</p>
+              <h3>Oberkellner</h3>
+              <p class="job__org">finefood catering, Metro, MR Event &amp; Gastronomie</p>
+              <ul>
+                <li>Betreuung anspruchsvoller Gäste bei exklusiven Firmenveranstaltungen, u.&nbsp;a. für Jaguar, Dior, Calvin Klein und die Boston Consulting Group</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job" data-tags="media">
+            <div class="job__time"><span>2014</span></div>
+            <div class="job__body">
+              <p class="job__meta">Januar 2014 – April 2014 · Mettmann</p>
+              <h3>Redakteur (Praktikum)</h3>
+              <p class="job__org">Radio Neandertal</p>
+              <ul>
+                <li>Pressearbeit in der Redaktion</li>
+                <li>Durchführung und Aufbereitung von Interviews sowie Erstellung von Beiträgen</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job" data-tags="service">
+            <div class="job__time"><span>2012</span> – 2014</div>
+            <div class="job__body">
+              <p class="job__meta">Oktober 2012 – Januar 2014</p>
+              <h3>Versicherungskaufmann (Ausbildung)</h3>
+              <p class="job__org">SIGNAL IDUNA Gruppe</p>
+              <ul>
+                <li>Kundenbetreuung und -beratung, Vertragsmanagement</li>
+                <li>Schadensabwicklung und Kaltakquise</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+        <p class="timeline__empty" hidden>Keine Stationen in dieser Kategorie.</p>
+      </div>
+    </section>
+
+    <!-- ============ SPRACHEN & AUSBILDUNG ============ -->
+    <section class="panel panel--tint" id="skills">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal>Sprachen &amp; Ausbildung</p>
+          <h2 class="h2" data-split>Vier Sprachen. <em>Eine Leidenschaft.</em></h2>
+        </header>
+
+        <div class="duo">
+          <article class="box" data-reveal>
+            <h3 class="box__title">Sprachen</h3>
+            <ul class="langs">
+              <li class="lang" style="--lvl: 100%">
+                <div class="lang__row"><span>Deutsch</span><span class="lang__native">Deutsch</span></div>
+                <div class="lang__bar"><span></span></div>
+                <p>Muttersprache</p>
+              </li>
+              <li class="lang" style="--lvl: 100%">
+                <div class="lang__row"><span>Russisch</span><span class="lang__native" lang="ru">Русский</span></div>
+                <div class="lang__bar"><span></span></div>
+                <p>Muttersprache</p>
+              </li>
+              <li class="lang" style="--lvl: 88%">
+                <div class="lang__row"><span>Englisch</span><span class="lang__native" lang="en">English</span></div>
+                <div class="lang__bar"><span></span></div>
+                <p>Verhandlungssicher (Full Professional)</p>
+              </li>
+              <li class="lang" style="--lvl: 28%">
+                <div class="lang__row"><span>Japanisch</span><span class="lang__native" lang="ja">日本語</span></div>
+                <div class="lang__bar"><span></span></div>
+                <p>Grundkenntnisse – und die Neugier wächst</p>
+              </li>
+            </ul>
+          </article>
+
+          <div class="stack">
+            <article class="box box--blue" data-reveal style="--d: .1s">
+              <h3 class="box__title">Studium</h3>
+              <p class="box__big">Digitale Kommunikation und Medien / Multimedia</p>
+              <p class="box__meta">Universität Duisburg-Essen · 2016 – 2019</p>
+            </article>
+
+            <article class="box" data-reveal style="--d: .2s">
+              <h3 class="box__title">Zertifikat</h3>
+              <p class="box__big">Grundlagen des Onlinemarketings</p>
+            </article>
+
+            <article class="box" data-reveal style="--d: .3s">
+              <h3 class="box__title">Top-Kenntnisse</h3>
+              <ul class="tools">
+                <li>n8n</li>
+                <li>Anthropic Claude</li>
+                <li>LangChain</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NEWSLETTER → /api/newsletter → Supabase ============ -->
+    <section class="panel panel--newsletter" id="newsletter" aria-labelledby="nl-title">
+      <div class="container nl">
+        <div class="nl__intro">
+          <p class="eyebrow" data-reveal>Newsletter</p>
+          <h2 class="h2" id="nl-title" data-split>KI-Updates, die <em>wirklich</em> helfen.</h2>
+          <p class="nl__lead" data-reveal>
+            Neue Tools, Automatisierungs-Ideen mit n8n und Erkenntnisse aus dem STARTPLATZ AI HUB –
+            kompakt in dein Postfach. Kein Spam, jederzeit abbestellbar.
+          </p>
+        </div>
+
+        <form class="nl__form" id="newsletter-form" novalidate data-reveal style="--d: .15s">
+          <div class="nl__body">
+            <div class="nl__row">
+              <div class="nl__field">
+                <label for="nl-name">Vorname <span aria-hidden="true">*</span></label>
+                <input id="nl-name" name="name" type="text" autocomplete="given-name" required minlength="2" maxlength="100" placeholder="Dein Vorname" aria-describedby="nl-name-error" />
+                <p class="nl__error" id="nl-name-error" aria-live="polite"></p>
+              </div>
+              <div class="nl__field">
+                <label for="nl-email">E-Mail <span aria-hidden="true">*</span></label>
+                <input id="nl-email" name="email" type="email" autocomplete="email" required maxlength="200" placeholder="name@firma.de" aria-describedby="nl-email-error" />
+                <p class="nl__error" id="nl-email-error" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <label class="nl__consent">
+              <input type="checkbox" name="consent" required aria-describedby="nl-consent-error" />
+              <span>Ja, ich möchte den Newsletter von Jakow Smirin per E-Mail erhalten. Die Einwilligung kann ich jederzeit widerrufen.</span>
+            </label>
+            <p class="nl__error" id="nl-consent-error" aria-live="polite"></p>
+
+            <!-- Honeypot gegen Spam-Bots -->
+            <div class="cform__hp" aria-hidden="true">
+              <label for="nl-website">Website</label>
+              <input id="nl-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <button class="btn btn--primary nl__submit" type="submit">
+              <span class="nl__label">Kostenlos anmelden</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </button>
+            <p class="nl__status" role="status" aria-live="polite"></p>
+          </div>
+
+          <div class="nl__done" tabindex="-1">
+            <div class="cform__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9" /></svg></div>
+            <h3>Du bist dabei<span data-nl="name"></span>!</h3>
+            <p>Danke für deine Anmeldung. Das nächste KI-Update landet bald in deinem Postfach.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ KONTAKT ============ -->
+    <section class="panel panel--hero panel--contact" id="contact">
+      <canvas class="flow" data-flow data-flow-mirror aria-hidden="true"></canvas>
+      <div class="panel__glow" aria-hidden="true"></div>
+
+      <div class="container contact">
+        <div class="contact__intro">
+        <p class="pill" data-reveal><span class="pill__dot"></span>Offen für neue Ideen</p>
+        <h2 class="contact__title" data-split>Lass uns die Zukunft <em>gemeinsam</em> bauen.</h2>
+        <p class="contact__lead" data-reveal style="--d: .3s">
+          Du willst KI in deinem Unternehmen sinnvoll einsetzen, suchst einen Speaker für dein Event
+          oder hast eine Idee, die unlösbar scheint? Perfekt – genau mein Ding.
+          Schreib mir über das Formular, ich melde mich persönlich bei dir.
+        </p>
+
+        <div class="contact__cta" data-reveal style="--d: .45s">
+          <a class="btn btn--light" href="mailto:wbk2020@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M4 7l8 6 8-6" /></svg>
+            E-Mail schreiben
+          </a>
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/jakow-smirin-b75373173" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7" /></svg>
+            LinkedIn
+          </a>
+          <button class="btn btn--ghost" id="copy-mail" data-mail="wbk2020@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2.5" /><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" /></svg>
+            E-Mail kopieren
+          </button>
+        </div>
+
+        <p class="contact__loc" data-reveal style="--d: .55s">Düsseldorf, Nordrhein-Westfalen · Deutsch · Русский · English · <span lang="ja">日本語</span></p>
+        </div>
+
+        <!-- Kontaktformular → /api/contact → n8n-Webhook -->
+        <form class="cform" id="contact-form" novalidate data-reveal style="--d: .3s">
+          <div class="cform__body">
+            <h3 class="cform__title">Nachricht schreiben</h3>
+
+            <div class="field">
+              <label for="cf-name">Name <span aria-hidden="true">*</span></label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="100" placeholder="Wie heißt du?" aria-describedby="cf-name-error" />
+              <p class="field__error" id="cf-name-error" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="cf-email">E-Mail <span aria-hidden="true">*</span></label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required maxlength="200" placeholder="name@firma.de" aria-describedby="cf-email-error" />
+              <p class="field__error" id="cf-email-error" aria-live="polite"></p>
+            </div>
+
+            <fieldset class="field">
+              <legend>Worum geht es?</legend>
+              <div class="topics">
+                <label class="topic"><input type="radio" name="topic" value="KI-Beratung" checked /><span>KI-Beratung</span></label>
+                <label class="topic"><input type="radio" name="topic" value="Workshop &amp; Training" /><span>Workshop &amp; Training</span></label>
+                <label class="topic"><input type="radio" name="topic" value="Speaker &amp; Events" /><span>Speaker &amp; Events</span></label>
+                <label class="topic"><input type="radio" name="topic" value="Automatisierung mit n8n" /><span>Automatisierung</span></label>
+                <label class="topic"><input type="radio" name="topic" value="Sonstiges" /><span>Sonstiges</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="cf-message">Dein Anliegen <span aria-hidden="true">*</span></label>
+              <textarea id="cf-message" name="message" rows="5" required minlength="10" maxlength="3000" placeholder="Erzähl mir kurz, worum es geht …" aria-describedby="cf-message-error cf-count"></textarea>
+              <div class="field__meta">
+                <p class="field__error" id="cf-message-error" aria-live="polite"></p>
+                <span class="field__count" id="cf-count">0 / 3000</span>
+              </div>
+            </div>
+
+            <!-- Honeypot gegen Spam-Bots: für Menschen unsichtbar -->
+            <div class="cform__hp" aria-hidden="true">
+              <label for="cf-website">Website</label>
+              <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <p class="cform__privacy">Pflichtfelder sind mit * markiert. Deine Angaben nutze ich nur, um deine Anfrage zu beantworten.</p>
+
+            <button class="btn btn--light cform__submit" type="submit">
+              <span class="cform__label">Nachricht senden</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </button>
+            <p class="cform__status" role="status" aria-live="polite"></p>
+          </div>
+
+          <div class="cform__done" tabindex="-1">
+            <div class="cform__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9" /></svg></div>
+            <h3>Danke, <span data-cf="name"></span>!</h3>
+            <p>Deine Nachricht ist angekommen. Ich melde mich so schnell wie möglich bei dir unter <strong data-cf="email"></strong>.</p>
+            <button class="btn btn--ghost btn--sm" type="button" data-cf="again">Weitere Nachricht schreiben</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p>© <span id="year">2026</span> Jakow Smirin · Idea Machine &amp; Problem Solver from the Future</p>
+      <a class="footer__top" href="#top">Nach oben
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg>
+      </a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js" defer></script>
+
+  <!-- ElevenLabs Voice Agent (schwebt unten rechts) -->
+  <elevenlabs-convai agent-id="agent_1301m5cadwrce2p8m24dypygq4t7"></elevenlabs-convai>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# Nur die Portfolio-Seite und ihren Server versionieren – alles andere im Ordner bleibt lokal
+/*
+!/.gitignore
+!/README.md
+!/portfolio/
+!/server/
+
+# Geheimnisse: NIEMALS hochladen
+.env
+.env.*
+!.env.example
+
+# Laufzeit-Caches des Servers
+server/cache*.json
+
+node_modules/
+.DS_Store
+Thumbs.db
